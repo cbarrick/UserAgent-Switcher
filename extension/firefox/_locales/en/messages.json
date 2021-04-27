@@ -10,19 +10,19 @@
   "userAgentSwitcherandManagerOptions": {
     "message": "User-Agent Switcher and Manager :: Options"
   },
-  "blackListMode": {
-    "message": "Black-List Mode"
+  "denyListMode": {
+    "message": "Deny-List Mode"
   },
   "description": {
     "message": "Description"
   },
-  "blackListModeDescription": {
+  "denyListModeDescription": {
     "message": "Apply the custom user-agent string to all tabs except the tabs with the following top-level hostnames (comma-separated list of hostnames). Note that even if a window-based user-agent string is set from the toolbar popup, your browser's default user-agent string is used."
   },
-  "whiteListMode": {
-    "message": "White-List Mode"
+  "allowListMode": {
+    "message": "Allow-List Mode"
   },
-  "whiteListModeDescription": {
+  "allowListModeDescription": {
     "message": "Only apply the custom user-agent string to the tabs with following top-level hostnames. Note that if a window-based user-agent string is set from the toolbar popup, this user-agent will overwrite the global one."
   },
   "customMode": {
@@ -38,7 +38,7 @@
     "message": "Use caching to improve performance (recommended value is true). Uncheck this option only if you are using the custom mode and also you need the user-agent string to be altered from the provided list on every single request."
   },
   "exactMatch": {
-    "message": "Use exact matching (if checked, you will need to insert all sub-domains in the white-list and black-list modes to be considered. If unchecked, all the sub-domains are passing the matching condition (e.g: www.google.com passes the matching if google.com is in the list))"
+    "message": "Use exact matching (if checked, you will need to insert all sub-domains in the allow-list and deny-list modes to be considered. If unchecked, all the sub-domains are passing the matching condition (e.g: www.google.com passes the matching if google.com is in the list))"
   },
   "faqs": {
     "message": "Open FAQs page on updates"

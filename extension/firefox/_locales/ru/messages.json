@@ -10,19 +10,19 @@
   "userAgentSwitcherandManagerOptions": {
     "message": "User-Agent Switcher and Manager :: Настройки"
   },
-  "blackListMode": {
+  "denyListMode": {
     "message": "Режим черного списка"
   },
   "description": {
     "message": "Описание"
   },
-  "blackListModeDescription": {
+  "denyListModeDescription": {
     "message": "Применить установленную строку User-Agent ко всем вкладкам за исключением содержащих следующие домены верхнего уровня (список доменов разделяется запятыми). Важно: даже если применяемая к окну строка User-Agent установлена из всплывающего окна, для этого списка будет использоваться строка User-Agent вашего браузера по умолчанию."
   },
-  "whiteListMode": {
+  "allowListMode": {
     "message": "Режим белого списка"
   },
-  "whiteListModeDescription": {
+  "allowListModeDescription": {
     "message": "Применять установленную строку User-Agent только к вкладкам, содержащим следующие домены верхнего уровня. Важно: даже если применяемая к окну строка User-Agent установлена из всплывающего окна, данный User-Agent заменит собой глобальный."
   },
   "customMode": {

@@ -19,11 +19,11 @@ chrome.tabs.onCreated.addListener(tab => {
 
 const prefs = {
   'ua': '',
-  'blacklist': [],
-  'whitelist': [],
+  'denylist': [],
+  'allowlist': [],
   'custom': {},
   'siblings': {}, // a list of domains that are considered siblings (use same index for all)
-  'mode': 'blacklist',
+  'mode': 'denylist',
   'color': '#777',
   'cache': true,
   'exactMatch': false,
@@ -131,18 +131,18 @@ chrome.storage.local.get(prefs, ps => {
   }
   // context menu
   chrome.contextMenus.create({
-    id: 'blacklist',
-    title: 'Switch to "black-list" mode',
+    id: 'denylist',
+    title: 'Switch to "deny-list" mode',
     contexts: ['browser_action'],
     type: 'radio',
-    checked: prefs.mode === 'blacklist'
+    checked: prefs.mode === 'denylist'
   }, () => chrome.runtime.lastError);
   chrome.contextMenus.create({
-    id: 'whitelist',
-    title: 'Switch to "white-list" mode',
+    id: 'allowlist',
+    title: 'Switch to "allow-list" mode',
     contexts: ['browser_action'],
     type: 'radio',
-    checked: prefs.mode === 'whitelist'
+    checked: prefs.mode === 'allowlist'
   }, () => chrome.runtime.lastError);
   chrome.contextMenus.create({
     id: 'custom',
@@ -406,9 +406,9 @@ function match({url, tabId, cookieStoreId = DCSI}) {
   log('match', url, tabId, cookieStoreId);
   const h = hostname(url);
 
-  if (prefs.mode === 'blacklist') {
-    if (prefs.blacklist.length) {
-      return prefs.blacklist.some(s => {
+  if (prefs.mode === 'denylist') {
+    if (prefs.denylist.length) {
+      return prefs.denylist.some(s => {
         if (s === h) {
           return true;
         }
@@ -418,9 +418,9 @@ function match({url, tabId, cookieStoreId = DCSI}) {
       });
     }
   }
-  else if (prefs.mode === 'whitelist') {
-    if (prefs.whitelist.length) {
-      return prefs.whitelist.some(s => {
+  else if (prefs.mode === 'allowlist') {
+    if (prefs.allowlist.length) {
+      return prefs.allowlist.some(s => {
         if (s === h) {
           return true;
         }

@@ -80,8 +80,8 @@ function save() {
     faqs: document.getElementById('faqs').checked,
     log: document.getElementById('log').checked,
     cache: document.getElementById('cache').checked,
-    blacklist: prepare(document.getElementById('blacklist').value),
-    whitelist: prepare(document.getElementById('whitelist').value),
+    denylist: prepare(document.getElementById('denylist').value),
+    allowlist: prepare(document.getElementById('allowlist').value),
     custom,
     parser,
     siblings,
@@ -103,9 +103,9 @@ function restore() {
     faqs: true,
     log: false,
     cache: true,
-    mode: 'blacklist',
-    whitelist: [],
-    blacklist: [],
+    mode: 'denylist',
+    allowlist: [],
+    denylist: [],
     custom: {},
     parser: {},
     siblings: {},
@@ -116,8 +116,8 @@ function restore() {
     document.getElementById('log').checked = prefs.log;
     document.getElementById('cache').checked = prefs.cache;
     document.querySelector(`[name="mode"][value="${prefs.mode}"`).checked = true;
-    document.getElementById('blacklist').value = prefs.blacklist.join(', ');
-    document.getElementById('whitelist').value = prefs.whitelist.join(', ');
+    document.getElementById('denylist').value = prefs.denylist.join(', ');
+    document.getElementById('allowlist').value = prefs.allowlist.join(', ');
     document.getElementById('custom').value = JSON.stringify(prefs.custom, null, 2);
     document.getElementById('parser').value = JSON.stringify(prefs.parser, null, 2);
     document.getElementById('siblings').value = JSON.stringify(Object.entries(prefs.siblings).reduce((p, [hostname, index]) => {
@@ -257,11 +257,11 @@ document.getElementById('import').addEventListener('click', () => {
 });
 
 /* toggle */
-document.getElementById('toggle-blacklist-desc').addEventListener('click', () => {
-  document.querySelector('[for="toggle-blacklist-desc"]').classList.toggle('hidden');
+document.getElementById('toggle-denylist-desc').addEventListener('click', () => {
+  document.querySelector('[for="toggle-denylist-desc"]').classList.toggle('hidden');
 });
-document.getElementById('toggle-whitelist-desc').addEventListener('click', () => {
-  document.querySelector('[for="toggle-whitelist-desc"]').classList.toggle('hidden');
+document.getElementById('toggle-allowlist-desc').addEventListener('click', () => {
+  document.querySelector('[for="toggle-allowlist-desc"]').classList.toggle('hidden');
 });
 document.getElementById('toggle-custom-desc').addEventListener('click', () => {
   document.querySelector('[for="toggle-custom-desc"]').classList.toggle('hidden');

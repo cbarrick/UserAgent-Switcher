@@ -93,8 +93,8 @@ h1 {
 #toggle-parser-desc,
 #toggle-protected-desc,
 #toggle-custom-desc,
-#toggle-whitelist-desc,
-#toggle-blacklist-desc {
+#toggle-allowlist-desc,
+#toggle-denylist-desc {
   cursor: pointer;
   color: var(--color-desc);
   background-color: var(--bg-desc);
